@@ -2,6 +2,8 @@
 
 > An electron-vue project
 
+This is a vue electron admin project base on  [vueAdmin-template](https://github.com/PanJiaChen/vueAdmin-template) , and was generated from [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about this project can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
+
 ## Build Setup
 
 ``` bash
@@ -20,8 +22,11 @@ npm run lint
 # run webpack in production
 npm run pack
 ```
-More information can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/en/npm_scripts.html).
-
 ---
 
-This project was generated from [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about this project can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
+
+## Demo
+
+![](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/electron-login.png)
+
+![](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/electron-admin.gif)
