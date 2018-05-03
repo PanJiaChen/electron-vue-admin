@@ -30,3 +30,7 @@ npm run pack
 ![](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/electron-login.png)
 
 ![](https://github.com/PanJiaChen/PanJiaChen.github.io/blob/master/images/electron-admin.gif)
+
+
+## Download
+Mac: [app release](https://github.com/PanJiaChen/electron-vue-admin/releases/tag/v3.0.0)
