@@ -1,8 +1,9 @@
 import { login, logout, getInfo } from '@/api/login'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const user = {
   state: {
-    token: '',
+    token: getToken(),
     name: '',
     avatar: '',
     roles: []
@@ -30,6 +31,7 @@ const user = {
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(response => {
           const data = response.data
+          setToken(data.token)
           commit('SET_TOKEN', data.token)
           resolve()
         }).catch(error => {
@@ -63,6 +65,7 @@ const user = {
         logout(state.token).then(() => {
           commit('SET_TOKEN', '')
           commit('SET_ROLES', [])
+          removeToken()
           resolve()
         }).catch(error => {
           reject(error)
@@ -73,6 +76,7 @@ const user = {
     // 前端 登出
     FedLogOut({ commit }) {
       return new Promise(resolve => {
+        removeToken()
         commit('SET_TOKEN', '')
         resolve()
       })
