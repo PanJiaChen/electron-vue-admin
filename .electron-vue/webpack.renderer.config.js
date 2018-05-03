@@ -5,6 +5,7 @@ process.env.BABEL_ENV = 'renderer'
 const path = require('path')
 const { dependencies } = require('../package.json')
 const webpack = require('webpack')
+const config = require('../config/index.js')
 
 const BabiliWebpackPlugin = require('babili-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
@@ -75,7 +76,16 @@ let rendererConfig = {
         }
       },
       {
+        test: /\.svg$/,
+        loader: 'svg-sprite-loader',
+        include: [path.join(__dirname, '../src/renderer/icons')],
+        options: {
+          symbolId: 'icon-[name]'
+        }
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        exclude: [path.join(__dirname, '../src/renderer/icons')],
         use: {
           loader: 'url-loader',
           query: {
@@ -110,6 +120,9 @@ let rendererConfig = {
   },
   plugins: [
     new ExtractTextPlugin('styles.css'),
+    new webpack.DefinePlugin({
+      'process.env': config.dev.env
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, '../src/index.ejs'),
