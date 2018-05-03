@@ -2,11 +2,26 @@
   "comments": false,
   "env": {
     "main": {
-      "presets": ["es2015", "stage-0"]
+      "presets": [
+        ["env", {
+          "targets": { "node": 7 }
+        }],
+        "stage-0"
+      ]
     },
     "renderer": {
       "presets": [
-        ["es2015", { "modules": false }],
+        ["env", {
+          "modules": false
+        }],
+        "stage-0"
+      ]
+    },
+    "web": {
+      "presets": [
+        ["env", {
+          "modules": false
+        }],
         "stage-0"
       ]
     }

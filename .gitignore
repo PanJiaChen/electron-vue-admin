@@ -1,10 +1,8 @@
 .DS_Store
-app/dist/index.html
-app/dist/main.js
-app/dist/renderer.js
-app/dist/styles.css
-builds/*
-dist/*
+dist/electron/*
+dist/web/*
+build/*
+!build/icons
 node_modules/
 npm-debug.log
 npm-debug.log.*

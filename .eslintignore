@@ -1,5 +1,3 @@
-app/node_modules/**
-app/dist/**
 build/*.js
-config/*.js
-app/src/renderer/assets
+src/renderer/assets/**
+dist/**
