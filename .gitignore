@@ -3,6 +3,7 @@ dist/electron/*
 dist/web/*
 build/*
 !build/icons
+package-lock.json
 node_modules/
 npm-debug.log
 npm-debug.log.*
