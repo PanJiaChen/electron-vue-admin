@@ -121,7 +121,7 @@ let rendererConfig = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': process.env.NODE_ENV === 'production' ? config.build.env : config.dev.env
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
