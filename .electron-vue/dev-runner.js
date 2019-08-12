@@ -16,7 +16,7 @@ let electronProcess = null
 let manualRestart = false
 let hotMiddleware
 
-function logStats (proc, data) {
+function logStats(proc, data) {
   let log = ''
 
   log += chalk.yellow.bold(`┏ ${proc} Process ${new Array((19 - proc.length) + 1).join('-')}`)
@@ -38,14 +38,14 @@ function logStats (proc, data) {
   console.log(log)
 }
 
-function startRenderer () {
+function startRenderer() {
   return new Promise((resolve, reject) => {
     rendererConfig.entry.renderer = [path.join(__dirname, 'dev-client')].concat(rendererConfig.entry.renderer)
 
     const compiler = webpack(rendererConfig)
-    hotMiddleware = webpackHotMiddleware(compiler, { 
-      log: false, 
-      heartbeat: 2500 
+    hotMiddleware = webpackHotMiddleware(compiler, {
+      log: false,
+      heartbeat: 2500
     })
 
     compiler.plugin('compilation', compilation => {
@@ -60,11 +60,10 @@ function startRenderer () {
     })
 
     const server = new WebpackDevServer(
-      compiler,
-      {
+      compiler, {
         contentBase: path.join(__dirname, '../'),
         quiet: true,
-        before (app, ctx) {
+        before(app, ctx) {
           app.use(hotMiddleware)
           ctx.middleware.waitUntilValid(() => {
             resolve()
@@ -77,7 +76,7 @@ function startRenderer () {
   })
 }
 
-function startMain () {
+function startMain() {
   return new Promise((resolve, reject) => {
     mainConfig.entry.main = [path.join(__dirname, '../src/main/index.dev.js')].concat(mainConfig.entry.main)
 
@@ -113,7 +112,7 @@ function startMain () {
   })
 }
 
-function startElectron () {
+function startElectron() {
   electronProcess = spawn(electron, ['--inspect=5858', path.join(__dirname, '../dist/electron/main.js')])
 
   electronProcess.stdout.on('data', data => {
@@ -128,7 +127,7 @@ function startElectron () {
   })
 }
 
-function electronLog (data, color) {
+function electronLog(data, color) {
   let log = ''
   data = data.toString().split(/\r?\n/)
   data.forEach(line => {
@@ -145,7 +144,7 @@ function electronLog (data, color) {
   }
 }
 
-function greeting () {
+function greeting() {
   const cols = process.stdout.columns
   let text = ''
 
@@ -163,7 +162,7 @@ function greeting () {
   console.log(chalk.blue('  getting ready...') + '\n')
 }
 
-function init () {
+function init() {
   greeting()
 
   Promise.all([startRenderer(), startMain()])
