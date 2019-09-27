@@ -1,7 +1,7 @@
 {
   "name": "electron-vue-admin",
-  "version": "0.0.2",
-  "author": "bigrocs <bigrocs@qq.com>",
+  "version": "3.0.0",
+  "author": "Pan <panfree23@gmail.com>",
   "description": "An electron-vue project",
   "license": "MIT",
   "main": "./dist/electron/main.js",
