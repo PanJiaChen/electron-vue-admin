@@ -10,7 +10,9 @@ module.exports = {
     es6: true,
   },
   extends: 'eslint:recommended',
-  // required to lint *.vue files
+  globals: {
+    __static: true
+  },
   plugins: [
     'html'
   ],
@@ -22,8 +24,6 @@ module.exports = {
       }
     }
   },
-  // add your custom rules here
-  //it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
     'accessor-pairs': 2,
     'arrow-spacing': [2, {
