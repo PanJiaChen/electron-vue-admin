@@ -5,24 +5,30 @@
 @import './sidebar.scss';
 
 body {
+  height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 }
 
+label {
+  font-weight: 700;
+}
+
 html {
+  height: 100%;
   box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
 }
 
 *,
 *:before,
 *:after {
   box-sizing: inherit;
-}
-
-div:focus{
-  outline: none;
 }
 
 a:focus,
@@ -38,6 +44,10 @@ a:hover {
   text-decoration: none;
 }
 
+div:focus {
+  outline: none;
+}
+
 .clearfix {
   &:after {
     visibility: hidden;
@@ -49,11 +59,7 @@ a:hover {
   }
 }
 
-//main-container全局样式
-.app-main{
-  min-height: 100%
-}
-
+// main-container global css
 .app-container {
   padding: 20px;
 }
